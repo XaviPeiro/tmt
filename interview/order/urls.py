@@ -1,10 +1,10 @@
 
 from django.urls import path
-from interview.order.views import OrderListCreateView, OrderTagListCreateView
-
+from interview.order.views import OrderListCreateView, OrderTagListCreateView, OrderDeactivateView
 
 urlpatterns = [
     path('tags/', OrderTagListCreateView.as_view(), name='order-detail'),
     path('', OrderListCreateView.as_view(), name='order-list'),
+    path('<int:id>/deactivate/', OrderDeactivateView.as_view(), name='order-deactivate'),
 
 ]
